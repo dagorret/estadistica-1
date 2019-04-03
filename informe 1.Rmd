@@ -1,8 +1,22 @@
 ---
-title: "R Notebook"
+title: "Práctico 1 - Estadística"
 output: html_notebook
 ---
-# Tabla de Datos
+
+## Consigna 1
+
+> En estadística una población es un conjunto de sujetos, individuos, elementos o eventos con determinadas características.
+  -- Fuente: Wikipedia  
+  
+> En estadística, una muestra es un subconjunto de casos o individuos de una población. 
+  -- Fuente: Wikipedia
+  
+**Respuesta 1**: Es una muestra. Ya que la población es el conjunto de empresas de Río Cuarto censadas (censo=totalidad) en el año 2007
+
+**Respuesta 2**: Es una muestra. Ya que el filtro de la selección se define como "principales". Distinto hubiese sido si su hubiera definido, las empresas Químicas de Río Cuarto. En este último caso sabemos que son todas que tiene dicha actividad.
+
+
+## Tabla de Datos
 ```{r}
 load('datos.RData')
 datos
