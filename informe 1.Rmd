@@ -49,9 +49,12 @@ pactMadera <- a3p[2] * 100
 pactMaquinaria <- a3p[3] * 100
 pactMetal <- a3p[4] * 100
 pactPNC <- a3p[5] * 100
+nactPNC <- a3["PNC"]
 ```
 
 Porcentaje de Empresas de Avtidad Alimentos: `r toString(pactAlimentos)` %
+
+Total de Empresasa de Actividad PNC: `r toString(nactPNC)`
 
 Porcentaje de Empresas de Actidad PNC: `r toString(pactPNC)` %
 
