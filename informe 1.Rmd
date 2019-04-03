@@ -58,7 +58,21 @@ Total de Empresasa de Actividad PNC: `r toString(nactPNC)`
 
 Porcentaje de Empresas de Actidad PNC: `r toString(pactPNC)` %
 
+## Consigna 4
 
+** Gráfico de Barras**
+```{r}
+counts <- table(datos$Actividad)
+barplot(counts, main="Distribución por Actividad", xlab = "Rama de Actividad")
+```
+
+**Gráfico de Torta o de Sectores**
+```{r}
+mytable <- table(datos$Actividad)
+lbls <- paste(names(mytable), " ", mytable/sum(mytable)*100, sep="") #Contruir porcentaje
+lbls <- paste(lbls,"%",sep="") # ad % to labels  #Añadir Porcentaje
+pie(mytable, labels = lbls,col=rainbow(length(lbls)), main="Distribución % por Actividad") 
+```
 
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
