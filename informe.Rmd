@@ -1,8 +1,10 @@
 ---
 title: "Práctico 1 - Estadística"
 output:
-  pdf_document: default
+  html_document:
+    df_print: paged
   html_notebook: default
+  pdf_document: default
 ---
 
 ## Consigna 1
@@ -76,17 +78,26 @@ lbls <- paste(lbls,"%",sep="") # ad % to labels  #Añadir Porcentaje
 pie(mytable, labels = lbls,col=rainbow(length(lbls)), main="Distribución % por Actividad") 
 ```
 
+## Consigna 5
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
+Frecuencia variable Actividad
 ```{r}
-plot(cars)
+x = datos$Actividad
+cbind(Frecuencia = table(x), Frecuencia_Relativa = table(x) / length(x), Frecuencia_Acumulada = cumsum(table(x)))
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+Porcentaje de Frecuencia variable Actividad
+```{r}
+x <- table(datos$Actividad)
+xx <- prop.table(x)
+cbind(prop.table(x)) * 100
+```
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+Porcentajes Acumulados
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+frequency::freq(datos$Actividad, type = "html")
+```
+
+
+
