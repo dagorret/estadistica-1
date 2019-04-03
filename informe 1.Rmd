@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+# Tabla de Datos
+```{r}
+load('datos.RData')
+datos
+```
+
+
+## Consigna 2
+```{r}
+mVentas <- mean(datos$Ventas)
+mActivo <- mean(datos$Activo)
+mPasivo <- mean(datos$Pasivo)
+mEmpleo <- mean(datos$Empleo)
+```
+
+Media de Ventas = `r toString(mVentas)`
+
+Media de Activo = `r toString(mActivo)`
+
+Media de Pasivo = `r toString(mPasivo)`
+
+Media de Empleo = `r toString(mEmpleo)`
+
+## Consigna 3
+
+```{r}
+a3 <- table(datos$Actividad)
+a3p <- prop.table(a3)
+pactAlimentos <- a3p[1] * 100
+pactMadera <- a3p[2] * 100
+pactMaquinaria <- a3p[3] * 100
+pactMetal <- a3p[4] * 100
+pactPNC <- a3p[5] * 100
+```
+
+Porcentaje de Empresas de Avtidad Alimentos: `r toString(pactAlimentos)` %
+
+Porcentaje de Empresas de Actidad PNC: `r toString(pactPNC)` %
+
+
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
