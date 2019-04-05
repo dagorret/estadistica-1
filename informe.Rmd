@@ -1,9 +1,9 @@
 ---
 title: "Práctico 1 - Estadística"
 output:
+  html_notebook: default
   html_document:
     df_print: paged
-  html_notebook: default
   pdf_document: default
 ---
 
@@ -80,24 +80,12 @@ pie(mytable, labels = lbls,col=rainbow(length(lbls)), main="Distribución % por 
 
 ## Consigna 5
 
-Frecuencia variable Actividad
+Frecuencias de la variable Actividad
 ```{r}
 x = datos$Actividad
-cbind(Frecuencia = table(x), Frecuencia_Relativa = table(x) / length(x), Frecuencia_Acumulada = cumsum(table(x)))
+cbind(Frecuencia = table(x), Frecuencia_Acumulada = cumsum(table(x)), Frecuencia_Relativa = table(x) / length(x), Frecuencia_Relativa_Acumulada = cumsum(table(x) / length(x)) , Frecuencia_Porcentual = table(x) / length(x) * 100, Frecuencia_Porcentual_Acumulada = cumsum(table(x) / length(x) * 100) )
 ```
 
-Porcentaje de Frecuencia variable Actividad
-```{r}
-x <- table(datos$Actividad)
-xx <- prop.table(x)
-cbind(prop.table(x)) * 100
-```
-
-Porcentajes Acumulados
-
-```{r}
-frequency::freq(datos$Actividad, type = "html")
-```
 
 
 
