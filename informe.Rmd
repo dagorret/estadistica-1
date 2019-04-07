@@ -128,4 +128,17 @@ Mode(datos$Empleo)
 
 Dice que la moda es 37 pues el primero que en la función unique de R
 
+## Consigna 8
 
+Los cuartiles son:
+```{r}
+quantile(datos$Empleo, probs = seq(0, 1, length = 5))
+```
+
+El rango intercuartílico es una medida de variabilidad adecuada cuando la medida de posición central empleada ha sido la mediana. Se define como la diferencia entre el tercer cuartil (Q3) y el primer cuartil (Q1), es decir: RQ = Q3 - Q1. A la mitad del rango intercuartil se le conoce como desviación cuartil (DQ), es afectada muy poco por cuentas extremas. Esto lo hace una buena medida de dispersión para distribuciones sesgadas: DQ = RQ/2= (Q3 - Q1)/2. 
+
+```{r}
+Rango <- 46.2 - 7.0 
+```
+
+Con lo cual el Rango = `r Rango`
