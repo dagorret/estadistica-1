@@ -142,3 +142,28 @@ Rango <- 46.2 - 7.0
 ```
 
 Con lo cual el Rango = `r Rango`
+
+## Consigna 9
+
+```{r}
+first10 <- head(datos$Empleo, 10)
+first10_media <- mean(first10)
+first10_mediana <- median(first10)
+first10_moda <- Mode(first10)
+first10_varianza <- var(first10)
+first10_dev_std <- sd(first10)
+```
+
+Los parámetros estadísticos de la variable empleo para las primera 10 empresas de los datos son:
+
+Media: `r first10_media`
+
+Mediana: `r first10_mediana`
+
+Moda: `r first10_moda`
+
+Varianza : `r first10_varianza`
+
+Desviación Típica: `r first10_dev_std`
+
+
