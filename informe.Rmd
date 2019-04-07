@@ -146,24 +146,53 @@ Con lo cual el Rango = `r Rango`
 ## Consigna 9
 
 ```{r}
-first10 <- head(datos$Empleo, 10)
-first10_media <- mean(first10)
-first10_mediana <- median(first10)
-first10_moda <- Mode(first10)
-first10_varianza <- var(first10)
-first10_dev_std <- sd(first10)
+first10_emp <- head(datos$Empleo, 10)
+first10_media_emp <- mean(first10_emp)
+first10_mediana_emp <- median(first10_emp)
+first10_moda_emp <- Mode(first10_emp)
+first10_varianza_emp <- var(first10_emp)
+first10_dev_std_emp <- sd(first10_emp)
 ```
+
 
 Los parámetros estadísticos de la variable empleo para las primera 10 empresas de los datos son:
 
-Media: `r first10_media`
+Media: `r first10_media_emp`
 
-Mediana: `r first10_mediana`
+Mediana: `r first10_mediana_emp`
 
-Moda: `r first10_moda`
+Moda: `r first10_moda_emp`
 
-Varianza : `r first10_varianza`
+Varianza : `r first10_varianza_emp`
 
-Desviación Típica: `r first10_dev_std`
+Desviación Típica: `r first10_dev_std_emp`
+
+# Consigna 10
+
+```{r}
+first10_vta <- head(datos$Ventas, 10)
+cor(first10_emp, first10_vta)
+```
+
+El Coeficiente de Correación para las 10 primeras empresas entre las varialbes Ventas y Empleo es : 0.782
+
+```{r}
+tabla_lineal = lm(first10_emp ~ first10_vta)
+summary(tabla_lineal)$r.squared
+```
+
+Nota: lm se utiliza para adecuar modelos lineales. Se puede usar para realizar una regresión, análisis de varianza  y análisis de covarianza.
+
+El Coeficiente de determinaciön es: 0.612
+
+que sale de:
+
+```{r}
+tabla_lineal = lm(first10_emp ~ first10_vta)
+summary(tabla_lineal)
+```
 
 
+Del valor de "Multiple R-squared"
+
+## Consigna 11
