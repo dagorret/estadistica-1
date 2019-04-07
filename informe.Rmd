@@ -196,3 +196,65 @@ summary(tabla_lineal)
 Del valor de "Multiple R-squared"
 
 ## Consigna 11
+```{r}
+prop.table(table(datos$Actividad))
+```
+
+La probalidad de que una empresa elejida al azar sea de la rama de Alimentos es del 0.45.
+
+## Consigna 12
+
+La probalidad de que una empresa elejida al azar sea de la rama de Maquinaria es del 0.20.
+
+## Consigna 13
+
+P(~Alimentos) = P(Madera) + P(Maquinaria) + P(Metal) + P(PNC) + P(Quïmicos) = P(E) - P(Alimentos) = 1 - P(Alimentos)
+
+```{r}
+1 - 0.45
+```
+
+
+0.55 es la probabilidad de que se saque al azar una empresa que no sea de alimentos.
+
+# Consiga 14
+
+Tal como se presenta en la tabla los eventos de la variable Actividad son mutuamente excluyentes. Por lo que la probabilidad de que se seleccione una empresa de Alimentos y Maquinaria es igual a 0. Es decir imposible.
+
+# Consigna 15
+```{r}
+intervalos_ventas <- c(1000000, 10000000, 77493920)
+ventas_intervalos=cut(datos$Ventas,breaks=intervalos_ventas,include.lowest=TRUE, dig.lab = 15)
+prop.table(table(ventas_intervalos))
+```
+
+La probabilidad de que se elija al azar una empresa que facture más de 10000000 en ventas es del 0.15
+
+# Consigna 16
+Tal cual se presenta la tabla la variable actividad, son mutuamentes excluyentes. Ninguna actividad se puede presentar en conjunto. Así se presetan los datos. Y se entiende que el censo toma la actividad principal de la empresa, es una actividad y solo una.
+
+# Consigna 17
+```{r}
+ventas <- datos$Ventas
+empleo <- datos$Empleo
+intervalos_ventas <- c(1000000, 5000000, 77493920)
+ventas_intervalos=cut(ventas,breaks=intervalos_ventas,include.lowest=TRUE, dig.lab = 20)
+intervalos_empleo <- c(7,50,162)
+empleo_intervalos=cut(empleo,breaks=intervalos_empleo,include.lowest=TRUE, dig.lab = 4)
+prop.table(table(empleo_intervalos, ventas_intervalos))
+```
+
+## Consigna 18
+La probabilidad que una empresa elegida al azar tenga más de 50 empleados facture más de 5 millones es de 0.20
+
+La probabilidad que una empresa elegida al azar tenga más de 50 empleados facture menos de 5 millones es de 0.05
+
+## Consigna 19
+
+"19-Con la información de la tabla anterior: cuál es la probabilidad de que una empresa facture más de 5 millones dado que posee más de 5 empleados."
+
+Es la posiblidad de que tenga mayor 5000000 osea = 9,10 + 0,20 = 0,30
+
+## Consigna 20
+La probabilidad de que una empresa posea menos de 50 empleados dado que factura menos de 5 millones es de 0.65
+
