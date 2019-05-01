@@ -1,0 +1,57 @@
+---
+title: "Práctico 2 - Estadística"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+#Práctico Nro. 2
+
+## Tabla de Datos
+```{r}
+load('datos.RData')
+datos$ActAlimentos[datos$Actividad == "Alimentos"] <- 1
+datos$ActAlimentos[datos$Actividad != "Alimentos"] <- 0
+table(datos$Actividad, datos$ActAlimentos)
+
+```
+
+## Consigna 1.a
+
+Frecuencia de datos de Empresas con Actividad "Alimentos", P(x=1).
+
+
+```{r}
+adatos <- table(datos$ActAlimentos)
+adatosp <- prop.table(adatos)
+adatos
+```
+
+```{r}
+adatosp
+```
+
+La media de p(x=1) es isgual a 0.45 que ser bipuntal es igual a la media.
+
+## Consigna 1.b
+
+La varianza de p(1), empresas con actividad "Alimentos" es >
+\begin{equation*}
+\sigma ^{2} = p q\end{equation*}
+
+Donde p es la probabilidad de la existencia del evento o característica. Y q = 1 - p
+
+```{r}
+p = 0.45
+q = 1 - p
+varianza = p * q
+```
+
+la varianza de la consigna es $\sigma ^ 2$= 0.45 (1 - 0.45) = `r toString(varianza)`
+
+## Consigna 1.c
+
+La probabilidad de que se extraiga una empresa P(x=1) que es igual a 0.45.
+
