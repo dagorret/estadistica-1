@@ -112,3 +112,11 @@ P(X=9; $\mu=8$) = `r (r1)`
 P(X>=9; $\mu=8$) = `r (r2)`
 
 P(x>=100; $\mu=8) = `r (r3)`
+
+## Consignas 4
+
+P(x<80) =  0.5 ya que el area menor que la media es siempre 0.5
+
+P(x>80) = por lo anterior, el area mayor a la media siempre es 0.5
+
+P(x < 120) = 
