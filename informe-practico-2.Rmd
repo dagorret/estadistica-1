@@ -69,3 +69,12 @@ Por lo tanto, en n = 20 y P(x=1)=0.45,
 $\mu = 20 * 0.45 =$ `r toString(20 * 0.45)`
 
 Y $\sigma ^ 2 = 20 * 0.45 * 0.55$ = `r toString(20 * 0.45 * 0.55)`
+
+## Consigna 2.c
+
+```{r}
+px5 <- dbinom(5, 20, 0.45)
+```
+
+
+P(x=5, 20, 0.45) =  `r toString(px5)`
