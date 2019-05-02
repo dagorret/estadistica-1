@@ -78,3 +78,17 @@ px5 <- dbinom(5, 20, 0.45)
 
 
 P(x=5, 20, 0.45) =  `r toString(px5)`
+
+## Consigna 2.d
+
+En P(x<=9, 20, 0.45) tiene una recorrdio [0,1,2,..,9].
+
+```{r}
+px9 <-  pbinom(c(9), size=20, prob=0.45)
+
+```
+
+
+Con lo cual P(x<=9, 20, 0.45) = `r toString(px9)`
+
+
