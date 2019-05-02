@@ -119,4 +119,38 @@ P(x<80) =  0.5 ya que el area menor que la media es siempre 0.5
 
 P(x>80) = por lo anterior, el area mayor a la media siempre es 0.5
 
-P(x < 120) = 
+```{r}
+r4 <- pnorm(120, mean = 80, sd = 40)
+```
+
+
+P(x < 120) =  `r toString(r4)`
+
+```{r}
+r5 <- pnorm(40, mean = 80, sd = 40)
+
+```
+
+P(x < 40) = `r toString(r5)`
+
+```{r}
+r6 <- pnorm(160, mean = 80, sd = 40)
+
+```
+
+P(x < 160) = `r toString(r6)`
+
+
+```{r}
+r7 <- pnorm(200, mean = 80, sd = 40)
+
+```
+
+P(x < 200) = `r toString(r7)`
+
+```{r}
+r8 <- pnorm(280, mean = 80, sd = 40, lower.tail = FALSE)
+
+```
+
+P(x > 280) = `r toString(r8)`
