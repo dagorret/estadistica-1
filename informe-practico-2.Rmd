@@ -91,4 +91,24 @@ px9 <-  pbinom(c(9), size=20, prob=0.45)
 
 Con lo cual P(x<=9, 20, 0.45) = `r toString(px9)`
 
+## Consigna 3.a
 
+En una distribución de Poisson $\mu = n p q = n p=\sigma^2$ 
+Con lo cual n = 1000 empresas y p = 0.008
+
+$\mu =$ `r toString(1000 * 0.008)`
+
+## Consigna 3.b 3.c 3.d
+
+```{r}
+r1 <- dpois(9,8)
+r2 <- ppois(c(9), 8, lower.tail=F)
+r3 <- ppois(c(99), 8, lower.tail=F)
+```
+
+
+P(X=9; $\mu=8$) = `r (r1)`
+
+P(X>=9; $\mu=8$) = `r (r2)`
+
+P(x>=100; $\mu=8) = `r (r3)`
