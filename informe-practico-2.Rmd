@@ -39,7 +39,7 @@ La media de p(x=1) es isgual a 0.45 que ser bipuntal es igual a la media.
 
 La varianza de p(1), empresas con actividad "Alimentos" es >
 \begin{equation*}
-\sigma ^{2} = p q\end{equation*}
+\sigma ^{2} = p . q\end{equation*}
 
 Donde p es la probabilidad de la existencia del evento o característica. Y q = 1 - p
 
@@ -55,3 +55,17 @@ la varianza de la consigna es $\sigma ^ 2$= 0.45 (1 - 0.45) = `r toString(varian
 
 La probabilidad de que se extraiga una empresa P(x=1) que es igual a 0.45.
 
+## Consigna 2.a y 2.b
+
+Las fórmulas son:
+
+\begin{equation*}
+\mu = n . p \\
+\sigma ^{2} = n.p.q
+\end{equation*}
+
+Por lo tanto, en n = 20 y P(x=1)=0.45, 
+
+$\mu = 20 * 0.45 =$ `r toString(20 * 0.45)`
+
+Y $\sigma ^ 2 = 20 * 0.45 * 0.55$ = `r toString(20 * 0.45 * 0.55)`
