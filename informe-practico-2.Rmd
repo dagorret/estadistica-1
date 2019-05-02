@@ -154,3 +154,17 @@ r8 <- pnorm(280, mean = 80, sd = 40, lower.tail = FALSE)
 ```
 
 P(x > 280) = `r toString(r8)`
+
+```{r}
+r9 <- pnorm(40, mean = 80, sd = 40, lower.tail = TRUE) - pnorm(120, mean = 80, sd = 40, lower.tail = TRUE) 
+
+```
+
+P(40 < x < 120) = `r toString(r9)`
+
+```{r}
+r10 <- pnorm(0, mean = 80, sd = 40, lower.tail = TRUE) - pnorm(160, mean = 80, sd = 40, lower.tail = TRUE) 
+
+```
+
+P(0 < x < 160) = `r toString(r10)`
