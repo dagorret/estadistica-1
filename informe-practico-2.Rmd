@@ -7,8 +7,6 @@ output:
   pdf_document: default
 ---
 
-#Práctico Nro. 2
-
 ## Tabla de Datos
 ```{r}
 load('datos.RData')
@@ -37,7 +35,7 @@ La media de p(x=1) es isgual a 0.45 que ser bipuntal es igual a la media.
 
 ## Consigna 1.b
 
-La varianza de p(1), empresas con actividad "Alimentos" es >
+La varianza de p(1), empresas con actividad "Alimentos" es :
 \begin{equation*}
 \sigma ^{2} = p . q\end{equation*}
 
@@ -111,7 +109,7 @@ P(X=9; $\mu=8$) = `r (r1)`
 
 P(X>=9; $\mu=8$) = `r (r2)`
 
-P(x>=100; $\mu=8) = `r (r3)`
+P(x>=100; $\mu=8$) = `r (r3)`
 
 ## Consignas 4
 
