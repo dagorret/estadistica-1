@@ -1,0 +1,69 @@
+---
+title: "Práctico 3 - Estadística"
+output:
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Tabla de Datos
+```{r}
+load('datos.RData')
+mean_aprobadas <- mean(est$Aprobadas)
+var_aprobadas <- var(est$Aprobadas)
+# Funcion de Estandar Error
+se <- function(x) sqrt(var(x)/length(x))
+
+se_aprobadas = se(est$Aprobadas)
+```
+## Problema 1
+
+**a)** Media puntual de Aprobadas, muestra = `r toString(mean_aprobadas)`
+
+**b)** Varianza puntual de Aprobadas, muestra = `r toString(var_aprobadas)`
+
+**c)** Error Estandar de Aprobadas, muestra = `r toString(se_aprobadas)`
+
+**d)**
+
+```{r}
+p_nivel_confianza = 0.90   #nivel de confianza dado
+d_datos <- est$Aprobadas #No hace falta, solo para debug
+N <- length(d_datos)   #tamaño muestra
+alfa <- 1 - p_nivel_confianza #alfa
+es <- sd(est$Aprobadas) # error estandar
+Q <- qnorm(1-alfa/2) #qnorm en P(Z > a) = k Devuelve el a para la probabilidad k.
+intervalo <- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
+```
+
+El intervalo es:
+```{r}
+intervalo
+```
+
+[1] es son los límites inferiores y superiores del intervalo
+
+e)
+
+```{r}
+p_nivel_confianza = 0.95   #nivel de confianza dado
+d_datos <- est$Aprobadas #No hace falta, solo para debug
+N <- length(d_datos)   #tamaño muestra
+alfa <- 1 - p_nivel_confianza #alfa
+es <- sd(est$Aprobadas) # error estandar
+Q <- qnorm(1-alfa/2) #qnorm en P(Z > a) = k Devuelve el a para la probabilidad k.
+intervalo <- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
+```
+
+El intervalo es:
+```{r}
+intervalo
+```
+
+[1] es son los límites inferiores y superiores del intervalo
+
+**comparativa**: Por lógica incrementar un el grado de confianza equivale a reducir la amplitud del intervalo.
+Esta amplitud depende de la dispersiôn con que se encuentra los valores de la variable. Con una desviaciôn tîpica de 2.53 respecto a la media que es 5 solo una centêsimas la amplitud del intervalo dado. A mi criterio hay un alto grado de dispersiôn en los valores.
+
+
