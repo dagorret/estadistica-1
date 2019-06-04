@@ -1790,14 +1790,14 @@ se_aprobadas = se(est$Aprobadas)</code></pre>
 <p><strong>d)</strong></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9uaXZlbF9jb25maWFuemEgPSAwLjkwICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvXG5kX2RhdG9zIDwtIGVzdCRBcHJvYmFkYXMgI05vIGhhY2UgZmFsdGEsIHNvbG8gcGFyYSBkZWJ1Z1xuTiA8LSBsZW5ndGgoZF9kYXRvcykgICAjdGFtYcOxbyBtdWVzdHJhXG5hbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYVxuZXMgPC0gc2QoZXN0JEFwcm9iYWRhcykgIyBlcnJvciBlc3RhbmRhclxuUSA8LSBxbm9ybSgxLWFsZmEvMikgI3Fub3JtIGVuIFAoWiA+IGEpID0gayBEZXZ1ZWx2ZSBlbCBhIHBhcmEgbGEgcHJvYmFiaWxpZGFkIGsuXG5pbnRlcnZhbG8gPC0gYyhtZWFuKGRfZCktUSplcy9zcXJ0KE4pLCBtZWFuKGRfZCkrUSplcy9zcXJ0KE4pICkgI0Zvcm11bGEgOiB4ICstIFogKG8vcmFpeihuKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9uaXZlbF9jb25maWFuemEgPSAwLjkwICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvXG5kX2RhdG9zIDwtIGVzdCRBcHJvYmFkYXMgI05vIGhhY2UgZmFsdGEsIHNvbG8gcGFyYSBkZWJ1Z1xuTiA8LSBsZW5ndGgoZF9kYXRvcykgICAjdGFtYcOxbyBtdWVzdHJhXG5hbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYVxuZXMgPC0gc2QoZXN0JEFwcm9iYWRhcykgIyBlcnJvciBlc3RhbmRhclxuUSA8LSBxbm9ybSgxLWFsZmEvMikgI3Fub3JtIGVuIFAoWiA+IGEpID0gayBEZXZ1ZWx2ZSBlbCBhIHBhcmEgbGEgcHJvYmFiaWxpZGFkIGsuXG5pbnRlcnZhbG8gPC0gYyhtZWFuKGRfZGF0b3MpLVEqZXMvc3FydChOKSwgbWVhbihkX2RhdG9zKStRKmVzL3NxcnQoTikgKSAjRm9ybXVsYSA6IHggKy0gWiAoby9yYWl6KG4pXG5gYGAifQ== -->
 <pre class="r"><code>p_nivel_confianza = 0.90   #nivel de confianza dado
 d_datos &lt;- est$Aprobadas #No hace falta, solo para debug
 N &lt;- length(d_datos)   #tamaño muestra
 alfa &lt;- 1 - p_nivel_confianza #alfa
 es &lt;- sd(est$Aprobadas) # error estandar
 Q &lt;- qnorm(1-alfa/2) #qnorm en P(Z &gt; a) = k Devuelve el a para la probabilidad k.
-intervalo &lt;- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)</code></pre>
+intervalo &lt;- c(mean(d_datos)-Q*es/sqrt(N), mean(d_datos)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1818,14 +1818,14 @@ intervalo &lt;- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x 
 </ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9uaXZlbF9jb25maWFuemEgPSAwLjk1ICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvXG5kX2RhdG9zIDwtIGVzdCRBcHJvYmFkYXMgI05vIGhhY2UgZmFsdGEsIHNvbG8gcGFyYSBkZWJ1Z1xuTiA8LSBsZW5ndGgoZF9kYXRvcykgICAjdGFtYcOxbyBtdWVzdHJhXG5hbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYVxuZXMgPC0gc2QoZXN0JEFwcm9iYWRhcykgIyBlcnJvciBlc3RhbmRhclxuUSA8LSBxbm9ybSgxLWFsZmEvMikgI3Fub3JtIGVuIFAoWiA+IGEpID0gayBEZXZ1ZWx2ZSBlbCBhIHBhcmEgbGEgcHJvYmFiaWxpZGFkIGsuXG5pbnRlcnZhbG8gPC0gYyhtZWFuKGRfZCktUSplcy9zcXJ0KE4pLCBtZWFuKGRfZCkrUSplcy9zcXJ0KE4pICkgI0Zvcm11bGEgOiB4ICstIFogKG8vcmFpeihuKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucF9uaXZlbF9jb25maWFuemEgPSAwLjk1ICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvXG5kX2RhdG9zIDwtIGVzdCRBcHJvYmFkYXMgI05vIGhhY2UgZmFsdGEsIHNvbG8gcGFyYSBkZWJ1Z1xuTiA8LSBsZW5ndGgoZF9kYXRvcykgICAjdGFtYcOxbyBtdWVzdHJhXG5hbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYVxuZXMgPC0gc2QoZXN0JEFwcm9iYWRhcykgIyBlcnJvciBlc3RhbmRhclxuUSA8LSBxbm9ybSgxLWFsZmEvMikgI3Fub3JtIGVuIFAoWiA+IGEpID0gayBEZXZ1ZWx2ZSBlbCBhIHBhcmEgbGEgcHJvYmFiaWxpZGFkIGsuXG5pbnRlcnZhbG8gPC0gYyhtZWFuKGRfZGF0b3MpLVEqZXMvc3FydChOKSwgbWVhbihkX2RhdG9zKStRKmVzL3NxcnQoTikgKSAjRm9ybXVsYSA6IHggKy0gWiAoby9yYWl6KG4pXG5gYGAifQ== -->
 <pre class="r"><code>p_nivel_confianza = 0.95   #nivel de confianza dado
 d_datos &lt;- est$Aprobadas #No hace falta, solo para debug
 N &lt;- length(d_datos)   #tamaño muestra
 alfa &lt;- 1 - p_nivel_confianza #alfa
 es &lt;- sd(est$Aprobadas) # error estandar
 Q &lt;- qnorm(1-alfa/2) #qnorm en P(Z &gt; a) = k Devuelve el a para la probabilidad k.
-intervalo &lt;- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)</code></pre>
+intervalo &lt;- c(mean(d_datos)-Q*es/sqrt(N), mean(d_datos)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1842,10 +1842,79 @@ intervalo &lt;- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x 
 <!-- rnb-text-begin -->
 <p>[1] es son los límites inferiores y superiores del intervalo</p>
 <p><strong>comparativa</strong>: Por lógica incrementar un el grado de confianza equivale a reducir la amplitud del intervalo. Esta amplitud depende de la dispersiôn con que se encuentra los valores de la variable. Con una desviaciôn tîpica de 2.53 respecto a la media que es 5 solo una centêsimas la amplitud del intervalo dado. A mi criterio hay un alto grado de dispersiôn en los valores.</p>
+</div>
+<div id="problema-2.a" class="section level2">
+<h2>Problema 2.a</h2>
+<p>Recodificar la variable a 0 y 1</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXN0JENvbXBCW2VzdCRDb21wbGVtZW50YXJpYSA9PSBcIlPDrVwiXSA8LSAxXG5lc3QkQ29tcEJbZXN0JENvbXBsZW1lbnRhcmlhICE9IFwiU8OtXCJdIDwtIDBcbnRhYmxlKGVzdCRDb21wbGVtZW50YXJpYSwgZXN0JENvbXBCKVxuYGBgIn0= -->
+<pre class="r"><code>est$CompB[est$Complementaria == &quot;Sí&quot;] &lt;- 1
+est$CompB[est$Complementaria != &quot;Sí&quot;] &lt;- 0
+table(est$Complementaria, est$CompB)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIFxuICAgICAgIDAgICAxXG4gIE5vIDMwNiAgIDBcbiAgU8OtICAgMCAxMTZcbiJ9 -->
+<pre><code>    
+       0   1
+  No 306   0
+  Sí   0 116</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Frecuencia de datos de Complementaria, P(x=1) y P(x=0).</p>
+<p><strong>Frecuencia Absoluta</strong></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWRhdG9zIDwtIHRhYmxlKGVzdCRDb21wQilcbmFkYXRvc3AgPC0gcHJvcC50YWJsZShhZGF0b3MpXG5hZGF0b3NcbmBgYCJ9 -->
+<pre class="r"><code>adatos &lt;- table(est$CompB)
+adatosp &lt;- prop.table(adatos)
+adatos</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gIDAgICAxIFxuMzA2IDExNiBcbiJ9 -->
+<pre><code>
+  0   1 
+306 116 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Frecuencia Relativa</strong></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWRhdG9zcFxuYGBgIn0= -->
+<pre class="r"><code>adatosp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgICAgIDAgICAgICAgICAxIFxuMC43MjUxMTg1IDAuMjc0ODgxNSBcbiJ9 -->
+<pre><code>
+        0         1 
+0.7251185 0.2748815 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Para obtener el n se utiliza:</p>
+<p>para poblaciones finitas [2.1] : <span class="math display">\[\frac{N Z_{a} ^{2} p q}{e^{2} \left ( N - 1 \right )Z_{a} ^{2} p q}\]</span></p>
+<p>Y pra poblaciones infinitas o con N desconocido[2.2] : <span class="math display">\[\frac{Z_{a} ^{2} p q}{e^{2}}\]</span></p>
+<p>En este caso no se conoce N (tamaño de la población) por que se tomará la fórmula [2.2]</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29uZmlhbnphIDwtIDAuOTVcbmVycm9yIDwtIDAuMDJcbnZfeiA8LSBxbm9ybShjb25maWFuemEpXG5wIDwtIGFkYXRvc3BbMl1cbnEgPC0gYWRhdG9zcFsxXVxudl96IF4gMiAqIHAgKiBxIC8gZXJyb3JeMlxuYGBgIn0= -->
+<pre class="r"><code>confianza &lt;- 0.95
+error &lt;- 0.02
+v_z &lt;- qnorm(confianza)
+p &lt;- adatosp[2]
+q &lt;- adatosp[1]
+v_z ^ 2 * p * q / error^2</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIDEgXG4xMzQ4LjE4NCBcbiJ9 -->
+<pre><code>       1 
+1348.184 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Respuesta = el tamaño de la muestra para un estudio con el 95% de confianza y un error del 2% deberia ser 1348 estudiantes</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHLDoWN0aWNvIDMgLSBFc3RhZMOtc3RpY2EiCm91dHB1dDoKICBodG1sX25vdGVib29rOiBkZWZhdWx0CiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogIHBkZl9kb2N1bWVudDogZGVmYXVsdAotLS0KCiMjIFRhYmxhIGRlIERhdG9zCmBgYHtyfQpsb2FkKCdkYXRvcy5SRGF0YScpCm1lYW5fYXByb2JhZGFzIDwtIG1lYW4oZXN0JEFwcm9iYWRhcykKdmFyX2Fwcm9iYWRhcyA8LSB2YXIoZXN0JEFwcm9iYWRhcykKIyBGdW5jaW9uIGRlIEVzdGFuZGFyIEVycm9yCnNlIDwtIGZ1bmN0aW9uKHgpIHNxcnQodmFyKHgpL2xlbmd0aCh4KSkKCnNlX2Fwcm9iYWRhcyA9IHNlKGVzdCRBcHJvYmFkYXMpCmBgYAojIyBQcm9ibGVtYSAxCgoqKmEpKiogTWVkaWEgcHVudHVhbCBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyhtZWFuX2Fwcm9iYWRhcylgCgoqKmIpKiogVmFyaWFuemEgcHVudHVhbCBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyh2YXJfYXByb2JhZGFzKWAKCioqYykqKiBFcnJvciBFc3RhbmRhciBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyhzZV9hcHJvYmFkYXMpYAoKKipkKSoqCgpgYGB7cn0KcF9uaXZlbF9jb25maWFuemEgPSAwLjkwICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvCmRfZGF0b3MgPC0gZXN0JEFwcm9iYWRhcyAjTm8gaGFjZSBmYWx0YSwgc29sbyBwYXJhIGRlYnVnCk4gPC0gbGVuZ3RoKGRfZGF0b3MpICAgI3RhbWHDsW8gbXVlc3RyYQphbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYQplcyA8LSBzZChlc3QkQXByb2JhZGFzKSAjIGVycm9yIGVzdGFuZGFyClEgPC0gcW5vcm0oMS1hbGZhLzIpICNxbm9ybSBlbiBQKFogPiBhKSA9IGsgRGV2dWVsdmUgZWwgYSBwYXJhIGxhIHByb2JhYmlsaWRhZCBrLgppbnRlcnZhbG8gPC0gYyhtZWFuKGRfZCktUSplcy9zcXJ0KE4pLCBtZWFuKGRfZCkrUSplcy9zcXJ0KE4pICkgI0Zvcm11bGEgOiB4ICstIFogKG8vcmFpeihuKQpgYGAKCkVsIGludGVydmFsbyBlczoKYGBge3J9CmludGVydmFsbwpgYGAKClsxXSBlcyBzb24gbG9zIGzDrW1pdGVzIGluZmVyaW9yZXMgeSBzdXBlcmlvcmVzIGRlbCBpbnRlcnZhbG8KCmUpCgpgYGB7cn0KcF9uaXZlbF9jb25maWFuemEgPSAwLjk1ICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvCmRfZGF0b3MgPC0gZXN0JEFwcm9iYWRhcyAjTm8gaGFjZSBmYWx0YSwgc29sbyBwYXJhIGRlYnVnCk4gPC0gbGVuZ3RoKGRfZGF0b3MpICAgI3RhbWHDsW8gbXVlc3RyYQphbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYQplcyA8LSBzZChlc3QkQXByb2JhZGFzKSAjIGVycm9yIGVzdGFuZGFyClEgPC0gcW5vcm0oMS1hbGZhLzIpICNxbm9ybSBlbiBQKFogPiBhKSA9IGsgRGV2dWVsdmUgZWwgYSBwYXJhIGxhIHByb2JhYmlsaWRhZCBrLgppbnRlcnZhbG8gPC0gYyhtZWFuKGRfZCktUSplcy9zcXJ0KE4pLCBtZWFuKGRfZCkrUSplcy9zcXJ0KE4pICkgI0Zvcm11bGEgOiB4ICstIFogKG8vcmFpeihuKQpgYGAKCkVsIGludGVydmFsbyBlczoKYGBge3J9CmludGVydmFsbwpgYGAKClsxXSBlcyBzb24gbG9zIGzDrW1pdGVzIGluZmVyaW9yZXMgeSBzdXBlcmlvcmVzIGRlbCBpbnRlcnZhbG8KCioqY29tcGFyYXRpdmEqKjogUG9yIGzDs2dpY2EgaW5jcmVtZW50YXIgdW4gZWwgZ3JhZG8gZGUgY29uZmlhbnphIGVxdWl2YWxlIGEgcmVkdWNpciBsYSBhbXBsaXR1ZCBkZWwgaW50ZXJ2YWxvLgpFc3RhIGFtcGxpdHVkIGRlcGVuZGUgZGUgbGEgZGlzcGVyc2nDtG4gY29uIHF1ZSBzZSBlbmN1ZW50cmEgbG9zIHZhbG9yZXMgZGUgbGEgdmFyaWFibGUuIENvbiB1bmEgZGVzdmlhY2nDtG4gdMOucGljYSBkZSAyLjUzIHJlc3BlY3RvIGEgbGEgbWVkaWEgcXVlIGVzIDUgc29sbyB1bmEgY2VudMOqc2ltYXMgbGEgYW1wbGl0dWQgZGVsIGludGVydmFsbyBkYWRvLiBBIG1pIGNyaXRlcmlvIGhheSB1biBhbHRvIGdyYWRvIGRlIGRpc3BlcnNpw7RuIGVuIGxvcyB2YWxvcmVzLgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUHLDoWN0aWNvIDMgLSBFc3RhZMOtc3RpY2EiCm91dHB1dDoKICBodG1sX25vdGVib29rOiBkZWZhdWx0CiAgaHRtbF9kb2N1bWVudDoKICAgIGRmX3ByaW50OiBwYWdlZAogIHBkZl9kb2N1bWVudDogZGVmYXVsdAotLS0KCiMjIFRhYmxhIGRlIERhdG9zCmBgYHtyfQpsb2FkKCdkYXRvcy5SRGF0YScpCm1lYW5fYXByb2JhZGFzIDwtIG1lYW4oZXN0JEFwcm9iYWRhcykKdmFyX2Fwcm9iYWRhcyA8LSB2YXIoZXN0JEFwcm9iYWRhcykKIyBGdW5jaW9uIGRlIEVzdGFuZGFyIEVycm9yCnNlIDwtIGZ1bmN0aW9uKHgpIHNxcnQodmFyKHgpL2xlbmd0aCh4KSkKCnNlX2Fwcm9iYWRhcyA9IHNlKGVzdCRBcHJvYmFkYXMpCmBgYAojIyBQcm9ibGVtYSAxCgoqKmEpKiogTWVkaWEgcHVudHVhbCBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyhtZWFuX2Fwcm9iYWRhcylgCgoqKmIpKiogVmFyaWFuemEgcHVudHVhbCBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyh2YXJfYXByb2JhZGFzKWAKCioqYykqKiBFcnJvciBFc3RhbmRhciBkZSBBcHJvYmFkYXMsIG11ZXN0cmEgPSBgciB0b1N0cmluZyhzZV9hcHJvYmFkYXMpYAoKKipkKSoqCgpgYGB7cn0KcF9uaXZlbF9jb25maWFuemEgPSAwLjkwICAgI25pdmVsIGRlIGNvbmZpYW56YSBkYWRvCmRfZGF0b3MgPC0gZXN0JEFwcm9iYWRhcyAjTm8gaGFjZSBmYWx0YSwgc29sbyBwYXJhIGRlYnVnCk4gPC0gbGVuZ3RoKGRfZGF0b3MpICAgI3RhbWHDsW8gbXVlc3RyYQphbGZhIDwtIDEgLSBwX25pdmVsX2NvbmZpYW56YSAjYWxmYQplcyA8LSBzZChlc3QkQXByb2JhZGFzKSAjIGVycm9yIGVzdGFuZGFyClEgPC0gcW5vcm0oMS1hbGZhLzIpICNxbm9ybSBlbiBQKFogPiBhKSA9IGsgRGV2dWVsdmUgZWwgYSBwYXJhIGxhIHByb2JhYmlsaWRhZCBrLgppbnRlcnZhbG8gPC0gYyhtZWFuKGRfZGF0b3MpLVEqZXMvc3FydChOKSwgbWVhbihkX2RhdG9zKStRKmVzL3NxcnQoTikgKSAjRm9ybXVsYSA6IHggKy0gWiAoby9yYWl6KG4pCmBgYAoKRWwgaW50ZXJ2YWxvIGVzOgpgYGB7cn0KaW50ZXJ2YWxvCmBgYAoKWzFdIGVzIHNvbiBsb3MgbMOtbWl0ZXMgaW5mZXJpb3JlcyB5IHN1cGVyaW9yZXMgZGVsIGludGVydmFsbwoKZSkKCmBgYHtyfQpwX25pdmVsX2NvbmZpYW56YSA9IDAuOTUgICAjbml2ZWwgZGUgY29uZmlhbnphIGRhZG8KZF9kYXRvcyA8LSBlc3QkQXByb2JhZGFzICNObyBoYWNlIGZhbHRhLCBzb2xvIHBhcmEgZGVidWcKTiA8LSBsZW5ndGgoZF9kYXRvcykgICAjdGFtYcOxbyBtdWVzdHJhCmFsZmEgPC0gMSAtIHBfbml2ZWxfY29uZmlhbnphICNhbGZhCmVzIDwtIHNkKGVzdCRBcHJvYmFkYXMpICMgZXJyb3IgZXN0YW5kYXIKUSA8LSBxbm9ybSgxLWFsZmEvMikgI3Fub3JtIGVuIFAoWiA+IGEpID0gayBEZXZ1ZWx2ZSBlbCBhIHBhcmEgbGEgcHJvYmFiaWxpZGFkIGsuCmludGVydmFsbyA8LSBjKG1lYW4oZF9kYXRvcyktUSplcy9zcXJ0KE4pLCBtZWFuKGRfZGF0b3MpK1EqZXMvc3FydChOKSApICNGb3JtdWxhIDogeCArLSBaIChvL3JhaXoobikKYGBgCgpFbCBpbnRlcnZhbG8gZXM6CmBgYHtyfQppbnRlcnZhbG8KYGBgCgpbMV0gZXMgc29uIGxvcyBsw61taXRlcyBpbmZlcmlvcmVzIHkgc3VwZXJpb3JlcyBkZWwgaW50ZXJ2YWxvCgoqKmNvbXBhcmF0aXZhKio6IFBvciBsw7NnaWNhIGluY3JlbWVudGFyIHVuIGVsIGdyYWRvIGRlIGNvbmZpYW56YSBlcXVpdmFsZSBhIHJlZHVjaXIgbGEgYW1wbGl0dWQgZGVsIGludGVydmFsby4KRXN0YSBhbXBsaXR1ZCBkZXBlbmRlIGRlIGxhIGRpc3BlcnNpw7RuIGNvbiBxdWUgc2UgZW5jdWVudHJhIGxvcyB2YWxvcmVzIGRlIGxhIHZhcmlhYmxlLiBDb24gdW5hIGRlc3ZpYWNpw7RuIHTDrnBpY2EgZGUgMi41MyByZXNwZWN0byBhIGxhIG1lZGlhIHF1ZSBlcyA1IHNvbG8gdW5hIGNlbnTDqnNpbWFzIGxhIGFtcGxpdHVkIGRlbCBpbnRlcnZhbG8gZGFkby4gQSBtaSBjcml0ZXJpbyBoYXkgdW4gYWx0byBncmFkbyBkZSBkaXNwZXJzacO0biBlbiBsb3MgdmFsb3Jlcy4KCiMjIFByb2JsZW1hIDIuYQoKUmVjb2RpZmljYXIgbGEgdmFyaWFibGUgYSAwIHkgMQoKYGBge3J9CmVzdCRDb21wQltlc3QkQ29tcGxlbWVudGFyaWEgPT0gIlPDrSJdIDwtIDEKZXN0JENvbXBCW2VzdCRDb21wbGVtZW50YXJpYSAhPSAiU8OtIl0gPC0gMAp0YWJsZShlc3QkQ29tcGxlbWVudGFyaWEsIGVzdCRDb21wQikKYGBgCgpGcmVjdWVuY2lhIGRlIGRhdG9zIGRlIENvbXBsZW1lbnRhcmlhLCBQKHg9MSkgeSBQKHg9MCkuCgoqKkZyZWN1ZW5jaWEgQWJzb2x1dGEqKgoKCmBgYHtyfQphZGF0b3MgPC0gdGFibGUoZXN0JENvbXBCKQphZGF0b3NwIDwtIHByb3AudGFibGUoYWRhdG9zKQphZGF0b3MKYGBgCgoqKkZyZWN1ZW5jaWEgUmVsYXRpdmEqKgpgYGB7cn0KYWRhdG9zcApgYGAKClBhcmEgb2J0ZW5lciBlbCBuIHNlIHV0aWxpemE6CgpwYXJhIHBvYmxhY2lvbmVzIGZpbml0YXMgWzIuMV0gOiAkJFxmcmFje04gWl97YX0gXnsyfSBwIHF9e2VeezJ9IFxsZWZ0ICggTiAtIDEgXHJpZ2h0IClaX3thfSBeezJ9IHAgcX0kJAoKWSBwcmEgcG9ibGFjaW9uZXMgaW5maW5pdGFzIG8gY29uIE4gZGVzY29ub2NpZG9bMi4yXSA6ICQkXGZyYWN7Wl97YX0gXnsyfSBwIHF9e2VeezJ9fSQkCgpFbiBlc3RlIGNhc28gbm8gc2UgY29ub2NlIE4gKHRhbWHDsW8gZGUgbGEgcG9ibGFjacOzbikgcG9yIHF1ZSBzZSB0b21hcsOhIGxhIGbDs3JtdWxhIFsyLjJdCgpgYGB7cn0KY29uZmlhbnphIDwtIDAuOTUKZXJyb3IgPC0gMC4wMgp2X3ogPC0gcW5vcm0oY29uZmlhbnphKQpwIDwtIGFkYXRvc3BbMl0KCnEgPC0gYWRhdG9zcFsxXQoKdl96IF4gMiAqIHAgKiBxIC8gZXJyb3JeMgpgYGAKClJlc3B1ZXN0YSA9ICBlbCB0YW1hw7FvIGRlIGxhIG11ZXN0cmEgcGFyYSB1biBlc3R1ZGlvIGNvbiBlbCA5NSUgZGUgY29uZmlhbnphIHkgdW4gZXJyb3IgZGVsIDIlIGRlYmVyaWEgc2VyIDEzNDggZXN0dWRpYW50ZXMKCgoK</div>
 
 
 

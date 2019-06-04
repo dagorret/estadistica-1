@@ -34,7 +34,7 @@ N <- length(d_datos)   #tamaño muestra
 alfa <- 1 - p_nivel_confianza #alfa
 es <- sd(est$Aprobadas) # error estandar
 Q <- qnorm(1-alfa/2) #qnorm en P(Z > a) = k Devuelve el a para la probabilidad k.
-intervalo <- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
+intervalo <- c(mean(d_datos)-Q*es/sqrt(N), mean(d_datos)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
 ```
 
 El intervalo es:
@@ -53,7 +53,7 @@ N <- length(d_datos)   #tamaño muestra
 alfa <- 1 - p_nivel_confianza #alfa
 es <- sd(est$Aprobadas) # error estandar
 Q <- qnorm(1-alfa/2) #qnorm en P(Z > a) = k Devuelve el a para la probabilidad k.
-intervalo <- c(mean(d_d)-Q*es/sqrt(N), mean(d_d)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
+intervalo <- c(mean(d_datos)-Q*es/sqrt(N), mean(d_datos)+Q*es/sqrt(N) ) #Formula : x +- Z (o/raiz(n)
 ```
 
 El intervalo es:
@@ -65,5 +65,53 @@ intervalo
 
 **comparativa**: Por lógica incrementar un el grado de confianza equivale a reducir la amplitud del intervalo.
 Esta amplitud depende de la dispersiôn con que se encuentra los valores de la variable. Con una desviaciôn tîpica de 2.53 respecto a la media que es 5 solo una centêsimas la amplitud del intervalo dado. A mi criterio hay un alto grado de dispersiôn en los valores.
+
+## Problema 2.a
+
+Recodificar la variable a 0 y 1
+
+```{r}
+est$CompB[est$Complementaria == "Sí"] <- 1
+est$CompB[est$Complementaria != "Sí"] <- 0
+table(est$Complementaria, est$CompB)
+```
+
+Frecuencia de datos de Complementaria, P(x=1) y P(x=0).
+
+**Frecuencia Absoluta**
+
+
+```{r}
+adatos <- table(est$CompB)
+adatosp <- prop.table(adatos)
+adatos
+```
+
+**Frecuencia Relativa**
+```{r}
+adatosp
+```
+
+Para obtener el n se utiliza:
+
+para poblaciones finitas [2.1] : $$\frac{N Z_{a} ^{2} p q}{e^{2} \left ( N - 1 \right )Z_{a} ^{2} p q}$$
+
+Y pra poblaciones infinitas o con N desconocido[2.2] : $$\frac{Z_{a} ^{2} p q}{e^{2}}$$
+
+En este caso no se conoce N (tamaño de la población) por que se tomará la fórmula [2.2]
+
+```{r}
+confianza <- 0.95
+error <- 0.02
+v_z <- qnorm(confianza)
+p <- adatosp[2]
+
+q <- adatosp[1]
+
+v_z ^ 2 * p * q / error^2
+```
+
+Respuesta =  el tamaño de la muestra para un estudio con el 95% de confianza y un error del 2% deberia ser 1348 estudiantes
+
 
 
