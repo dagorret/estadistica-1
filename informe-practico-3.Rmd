@@ -156,5 +156,38 @@ var(datos_otros$Aprobadas)
 ```
 
 ## Problema 3.b
+ 
+La fórmula para calcular el intervalo de confianza para un cociente de varianza es:
 
-Según el libro de referencia anterior, el intervalo de 
+$$ \frac{S_{1}^{2} / S_{2}^{2} }{F_{1-\alpha/2}} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2} / S_{2}^{2} }{F_{\alpha/2}}$$
+O de otra forma tomando los parámetros de la distribuciôn F (mas clara para mi):
+
+$$ \frac{S_{1}^{2}}{S_{2}^{2}}   \frac{1 }{F_({\alpha/2}, n_{1}-1,n_{2}-1)} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2}}{S_{2}^{2}}   {F_({\alpha/2}, n_{2}-1,n_{1}-1)}$$
+
+No pude, en este tiempo, encontrar la fórmula de distribuciôn F tanto en R. O mejor dicho no pude hacer coindir los cálculos manuales (sin la tabla en papel) con el procedimiento de R para calcular el intervalo, por que los valores de F me difieren, incluso en páginas en línea que hacen el cálculo.
+
+Por eso, directamente tomo el siguiente procedimiento de R, que lo calcula automáticamente.
+
+```{r}
+var.test(datos_siempre$Aprobadas, datos_otros$Aprobadas, conf.level = 0.9)
+```
+
+
+Esto dice que el el intervalo de confianza al 90% del cociente de las dos varianza se encuentra en el intervalo [0,7249297, 1,2333072]
+
+## Problema 3.c
+
+Respuesta: Dado que es un cociente, y en el intervalo calculado el valor 1 se encuentra comprendido podemos decir que las varianzas son similares o muy parecidas.
+
+## Problema 4.a
+
+Calcular el intervalo de de medias para los dos grupos anteriores.
+
+```{r}
+t.test(datos_siempre$Aprobadas, datos_otros$Aprobadas, conf.level = 0.9, var.equal = TRUE)
+
+```
+
+
+Respuesta: está claro que el primer intervalo presentado en el cuadro del ejercicio corresponde al intervalo que se ha calculado, con lo cual lo representa.
+El intervalo es [0.1585417,1.1001247]
