@@ -96,7 +96,9 @@ Para obtener el n se utiliza:
 
 para poblaciones finitas [2.1] : $$\frac{N Z_{a} ^{2} p q}{e^{2} \left ( N - 1 \right )Z_{a} ^{2} p q}$$
 
-Y pra poblaciones infinitas o con N desconocido[2.2] : $$\frac{Z_{a} ^{2} p q}{e^{2}}$$
+Y para poblaciones infinitas o con N desconocido[2.2] : $$\frac{Z_{a} ^{2} p q}{e^{2}}$$
+
+Fuente: Daniel  WW  (1999).  Biostatistics:  A  Foundation for   Analysis   in   the   Health   Sciences.   7th edition. New York: John Wiley & Sons. Pag 180.
 
 En este caso no se conoce N (tamaño de la población) por que se tomará la fórmula [2.2]
 
@@ -111,7 +113,48 @@ q <- adatosp[1]
 v_z ^ 2 * p * q / error^2
 ```
 
-Respuesta =  el tamaño de la muestra para un estudio con el 95% de confianza y un error del 2% deberia ser 1348 estudiantes
+Respuesta :  el tamaño de la muestra para un estudio con el 95% de confianza y un error del 2% deberia ser 1348 estudiantes
 
+## Problema 2.b
 
+Tomando la formula [2.2]:  $$n = \frac{Z_{a} ^{2} p q}{e^{2}}$$
 
+Se deduce que : $$ e = \sqrt{ \frac{Z_{a} ^{2} p q}{n}} $$
+```{r}
+confianza <- 0.95
+nmuestra = 422
+v_z <- qnorm(confianza)
+p <- adatosp[2]
+
+q <- adatosp[1]
+
+sqrt(v_z ^ 2 * p * q / nmuestra)
+
+```
+
+Respuesta: el error de estimación para las 422 observaciones de la tabla y con un nivel de confianza del 95% es de 3.5775%
+
+## Problema 3
+Separar la tabla de datos en dos. Los que para que siempre estudian grupalmente y el resto.
+
+```{r}
+datos_siempre <- subset(est, est$EstudioGrupal == "Casi siempre")
+datos_otros <- subset(est, est$EstudioGrupal != "Casi siempre")
+```
+
+## Problema 3.a
+La varianza de materias aprobadas para el grupo de Casi Siempre estudian grupalmente es:
+
+```{r}
+var(datos_siempre$Aprobadas)
+```
+
+La varianza de materias aprobadas para el resto del grupo es:
+
+```{r}
+var(datos_otros$Aprobadas)
+```
+
+## Problema 3.b
+
+Según el libro de referencia anterior, el intervalo de 
