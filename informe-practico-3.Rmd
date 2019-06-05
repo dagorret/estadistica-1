@@ -191,3 +191,15 @@ t.test(datos_siempre$Aprobadas, datos_otros$Aprobadas, conf.level = 0.9, var.equ
 
 Respuesta: está claro que el primer intervalo presentado en el cuadro del ejercicio corresponde al intervalo que se ha calculado, con lo cual lo representa.
 El intervalo es [0.1585417,1.1001247]
+
+## Problema 4.b
+
+Si fuese iguales el intervalo calculado anteriormente tendría que contemplar el valor 0.
+Como está escluido el valor 0, que significaría que en un 90% de probabilidad de que sean iguales, se concluye que el promedio de materias aprobadas entre los dos grupos no es igual.
+
+## Problema 5.a
+
+```{r}
+> cov(duration, waiting)          # apply the cov function 
+```
+
