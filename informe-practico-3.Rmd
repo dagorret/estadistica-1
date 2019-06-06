@@ -200,6 +200,9 @@ Como está escluido el valor 0, que significaría que en un 90% de probabilidad 
 ## Problema 5.a
 
 ```{r}
-> cov(duration, waiting)          # apply the cov function 
+cov(est$Aprobadas, est$RedesSociales)         
 ```
 
+```{r}
+cor(est$Aprobadas, est$RedesSociales)          
+```
