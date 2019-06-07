@@ -159,10 +159,10 @@ var(datos_otros$Aprobadas)
  
 La fórmula para calcular el intervalo de confianza para un cociente de varianza es:
 
-$$ \frac{S_{1}^{2} / S_{2}^{2} }{F_{1-\alpha/2}} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2} / S_{2}^{2} }{F_{\alpha/2}}$$
+$$\frac{S_{1}^{2} / S_{2}^{2} }{F_{\alpha/2}} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2} / S_{2}^{2} }{F_{1-\alpha/2}}$$
 O de otra forma tomando los parámetros de la distribuciôn F (mas clara para mi):
 
-$$ \frac{S_{1}^{2}}{S_{2}^{2}}   \frac{1 }{F_({\alpha/2}, n_{1}-1,n_{2}-1)} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2}}{S_{2}^{2}}   {F_({\alpha/2}, n_{2}-1,n_{1}-1)}$$
+$$ \frac{S_{1}^{2}}{S_{2}^{2}}   \frac{1 }{F_({\alpha/2}, n_{1}-1,n_{2}-1)} < \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} < \frac{S_{1}^{2}}{S_{2}^{2}}   {F_({1-\alpha/2}, n_{2}-1,n_{1}-1)}$$
 
 No pude, en este tiempo, encontrar la fórmula de distribuciôn F tanto en R. O mejor dicho no pude hacer coindir los cálculos manuales (sin la tabla en papel) con el procedimiento de R para calcular el intervalo, por que los valores de F me difieren, incluso en páginas en línea que hacen el cálculo.
 
@@ -202,7 +202,98 @@ Como está escluido el valor 0, que significaría que en un 90% de probabilidad 
 ```{r}
 cov(est$Aprobadas, est$RedesSociales)         
 ```
+Es positiva. Lo único que podemos decir es que hay una relación directa.
+
+## Problema 5.b
 
 ```{r}
 cor(est$Aprobadas, est$RedesSociales)          
 ```
+
+El valor de correlación en 0.039669
+
+Lo primero que nos dice al ser positivo que la aumentan conjuntamente (relación directa).
+En cuanto al valor significa que hay escaza relación entre ambas variables.
+
+## Problema 5.c y 5.d
+
+Grafico de dispersion y de la linea de regresión
+
+```{r}
+plot( est$RedesSociales, est$Aprobadas)
+abline(lsfit(est$RedesSociales, est$Aprobadas))
+modelo <- lm(est$Aprobadas ~ est$RedesSociales)
+```
+
+Ahora los parámetros del modelo:
+```{r}
+modelo
+```
+
+El modelo que  $$MateriaAprobadas = \alpha + \beta \cdot RedesSociales$$
+Por lo que según los coeficientes son $$\alpha = 4.77804  \:y\: \beta = 0.01747$$
+
+**Interpretación**: $\alpha$ es es valor que tendría Materias Aprobadas si un individuo estuviera 0 horas de Redes Sociales. Es la ordenada al origen de la pendiente. $\beta$, por otro lado es la pendiente de la recta de regresión lineal simple, y es cuanto se incrementaría Materias Aprobadas ante cada incremento en Redes Sociales. Digo incremento pues el valor de Beta es positvo.
+
+## Problema 6.a a 6.b
+
+Grafico de dispersion y de la linea de regresión según los datos de la tabla enviada.
+
+```{r}
+plot( est$EduMadre, est$Aprobadas)
+abline(lsfit(est$EduMadre, est$Aprobadas))
+modelo <- lm(est$Aprobadas ~ est$EduMadre )
+```
+
+Los parámetros de la regresión son:
+```{r}
+summary(modelo)
+```
+
+**a)**
+Segun los datos de la tabla adjunta al ejercicio esto fueron mi valores.
+El $$\alpha = 2.54803$$,
+
+Que es la ordenada al origen de la regresión y el valor que tendría si la madre no tuviera grados de educación.
+
+El
+$$\beta = 0.18438$$
+que signifca que hay una relación directa, aumenta una y otra, en una proporción de 0.18438 por cada año de educación de la madre. Y es la pendiente de la recta de regresión.
+
+
+**b)**
+En este punto, se puede decir que los años de educación de la madre afecta muy poco en la cantidad de materias aprobadas de su hijo.
+Para asegurar eso es necesario el coeficiene de correlación.
+
+Que es: 
+```{r}
+cor(est$EduMadre,est$Aprobadas)
+```
+Este coeficiente no dice con certeza (que va de -1 a 1), que hay poco correlación entre ambas variables. Pero si que si ambas crecen o decrecen conjuntamente.
+
+
+
+**c)**
+
+Si la regresión arrojó la siguiente relación:
+
+$$ MateriaAprobadas = 2.54803 + 0.18438 \cdot AñosEducaciónMadre$$
+Entonces 10 años de educación de la madre se esperaría que un su hijo estudiante aprube:
+
+```{r}
+ 2.54803 + 0.18438 * 10
+```
+
+
+**d)**
+El $$R^2 = (Coeficiente de Correlación) ^ 2$$
+
+En este caso es :
+
+```{r}
+varz = cor(est$EduMadre,est$Aprobadas)
+varz ^ 2
+```
+
+$R^2$ es 0.089 que es la proporción que puede explicar el modelo de regresión lineal entre los años de estudio de la madre y la cantidad de materias aprobadas de su hijo. En porcentje sería de 8.9%.
+
